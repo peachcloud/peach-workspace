@@ -1,0 +1,33 @@
+[package]
+name = "peach-dyndns-updater"
+version = "0.1.6"
+authors = ["Max Fowler <mfowler@commoninternet.net>"]
+edition = "2018"
+description = "Sytemd timer which keeps a dynamic dns subdomain up to date with the latest device IP using nsupdate."
+homepage = "https://opencollective.com/peachcloud"
+repository = "https://github.com/peachcloud/peach-dyndns-updater"
+readme = "README.md"
+license = "AGPL-3.0-only"
+publish = false
+
+[package.metadata.deb]
+depends = "$auto"
+extended-description = """\
+Cron job which keeps a dynamic dns subdomain up to date with the latest device IP using nsupdate.
+"""
+maintainer-scripts="debian"
+systemd-units = { unit-name = "peach-dyndns-updater" }
+assets = [
+    ["target/release/peach-dyndns-updater", "usr/bin/", "755"],
+    ["README.md", "usr/share/doc/peach-dyndns-updater/README", "644"],
+]
+
+[badges]
+travis-ci = { repository = "peachcloud/peach-dyndns-updater", branch = "main" }
+maintenance = { status = "actively-developed" }
+
+[dependencies]
+peach-lib = { path = "../peach-lib" }
+env_logger = "0.6"
+log = "0.4"
+

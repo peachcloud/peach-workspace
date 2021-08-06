@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+# create user which peach-dyndns-updater runs as
+adduser --quiet --system peach-dyndns-updater
+usermod -g peach peach-dyndns-updater
+
+# set permissions
+chown peach-dyndns-updater /usr/bin/peach-dyndns-updater
+
+# cargo deb automatically replaces this token below, see https://github.com/mmstick/cargo-deb/blob/master/systemd.md
+#DEBHELPER#

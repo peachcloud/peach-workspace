@@ -1,0 +1,57 @@
+{%- extends "nav" -%}
+{%- block card -%}
+      <!-- NETWORK DATA ALERTS VIEW -->
+      <form id="wifiAlerts" action="/network/wifi/usage" class="card center" method="post">
+        <div class="stack capsule" style="margin-left: 2rem; margin-right: 2rem;">
+          <div class="flex-grid">
+            <label id="dataTotal" class="label-large" title="Data download total in MB">{{ data_total.total / 1024 / 1024 | round }}</label>
+            <label class="label-small font-near-black">MB</label>
+          </div>
+          <label class="center-text label-small font-gray">USAGE TOTAL</label>
+        </div>
+        <div class="card-container container">
+          <div>
+            <img id="warnIcon" class="icon{% if threshold.warn_flag == false %} icon-inactive{% endif %}" alt="Warning" title="Warning threshold" src="/icons/alert.svg">
+          </div>
+          <div>
+            <!-- input for warning threshold -->
+            <label id="warn" class="label-small font-near-black"><input id="warnInput" class="alert-input" name="warn" placeholder="0" type="text" title="Warning threshold value" value="{{ threshold.warn }}">MB</label>
+            <label class="label-small font-gray" for="warn" style="padding-top: 0.25rem;">WARNING THRESHOLD</label>
+          </div>
+          <div>
+            <!-- checkbox for warning threshold flag -->
+            <input id="warnCheck" name="warn_flag" title="Activate warning" type="checkbox" {% if threshold.warn_flag %}checked{% endif %}>
+          </div>
+          <div>
+            <img id="cutIcon" class="icon{% if threshold.cut_flag == false %} icon-inactive{% endif %}" alt="Cutoff" title="Cutoff threshold" src="/icons/scissor.svg">
+          </div>
+          <div>
+            <!-- input for cutoff threshold -->
+            <label id="cut" class="label-small font-near-black"><input id="cutInput" class="alert-input" name="cut" placeholder="0" type="text" title="Critical threshold value" value="{{ threshold.cut }}">MB</label>
+            <label class="label-small font-gray" for="cut" style="padding-top: 0.25rem;">CUTOFF THRESHOLD</label>
+          </div>
+          <div>
+            <!-- checkbox for cutoff threshold flag -->
+            <input id="cutCheck" name="cut_flag" title="Activate cutoff" type="checkbox" {% if threshold.cut_flag %}checked{% endif %}>
+          </div>
+        </div>
+        <div id="buttonDiv" class="button-div">
+          <input id="updateAlerts" class="button button-primary center" title="Update" type="submit" value="Update">
+          <a id="resetTotal" class="button button-warning center" href="/network/wifi/usage/reset" title="Reset stored usage total to zero">Reset</a>
+          <a class="button button-secondary center" href="/network" title="Cancel">Cancel</a>
+        </div>
+        <!-- FLASH MESSAGE -->
+        <!-- check for flash message and display accordingly -->
+        {% if flash_msg and flash_name == "success" %}
+        <!-- display success message -->
+        <div class="capsule center-text flash-message font-success">{{ flash_msg }}.</div>
+        {%- elif flash_msg and flash_name == "info" %}
+        <!-- display info message -->
+        <div class="capsule center-text flash-message font-info">{{ flash_msg }}.</div>
+        {%- elif flash_msg and flash_name == "error" %}
+        <!-- display error message -->
+        <div class="capsule center-text flash-message font-failure">{{ flash_msg }}.</div>
+        {%- endif -%}
+      </form>
+      <script type="text/javascript" src="/js/network_usage.js"></script>
+{%- endblock card %}

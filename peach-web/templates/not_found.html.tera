@@ -1,0 +1,9 @@
+{%- extends "nav" -%}
+{%- block card %}
+        <div class="card center">
+            <div class="card-container capsule info-border">
+                <p>No PeachCloud resource exists for this URL. Please ensure that the URL in the address bar is correct.</p>
+                <p>Click the back arrow in the top-left or the PeachCloud logo at the bottom of your screen to return Home.</p>
+            </div>
+        </div>
+{%- endblock card -%}

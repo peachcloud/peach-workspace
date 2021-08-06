@@ -1,0 +1,5 @@
+curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "ssid", "params" : {"iface": "wlan0" }, "id":1 }' 127.0.0.1:5110
+
+curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "available_networks", "params" : {"iface": "wlan0" }, "id":1 }' 127.0.0.1:5110
+
+curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "add", "params" : {"ssid": "testss", "pass": "tptp" }, "id":1 }' 127.0.0.1:5110

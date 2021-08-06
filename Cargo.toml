@@ -1,0 +1,13 @@
+[workspace]
+
+members = [
+    "peach-lib",
+    "peach-config",
+    "peach-network",
+    "peach-web",
+    "peach-menu",
+    "peach-monitor",
+    "peach-stats",
+    "peach-probe",
+    "peach-dyndns-updater"
+]

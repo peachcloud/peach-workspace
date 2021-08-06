@@ -1,0 +1,6 @@
+/target
+deploy.sh
+build.sh
+crosscompile.sh
+run.sh
+/tmp

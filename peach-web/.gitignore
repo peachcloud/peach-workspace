@@ -1,0 +1,8 @@
+*.bak
+static/icons/optimized/*
+api_docs.md
+js_docs.md
+hashmap_notes
+notes
+target
+**/*.rs.bk

@@ -1,0 +1,42 @@
+[package]
+name = "peach-network"
+version = "0.2.12"
+authors = ["Andrew Reid <gnomad@cryptolab.net>"]
+edition = "2018"
+description = "Query and configure network interfaces using JSON-RPC over HTTP."
+homepage = "https://opencollective.com/peachcloud"
+repository = "https://github.com/peachcloud/peach-network"
+readme = "README.md"
+license = "AGPL-3.0-only"
+publish = false
+
+[package.metadata.deb]
+depends = "$auto"
+extended-description = """\
+peach-network is a microservice to query and configure network interfaces \
+using JSON-RPC over HTTP."""
+maintainer-scripts="debian"
+systemd-units = { unit-name = "peach-network" }
+assets = [
+    ["target/release/peach-network", "usr/bin/", "755"],
+    ["README.md", "usr/share/doc/peach-network/README", "644"],
+]
+
+[badges]
+travis-ci = { repository = "peachcloud/peach-network", branch = "master" }
+maintenance = { status = "actively-developed" }
+
+[dependencies]
+env_logger = "0.6"
+failure = "0.1"
+get_if_addrs = "0.5.3"
+jsonrpc-core = "11"
+jsonrpc-http-server = "11"
+jsonrpc-test = "11"
+log = "0.4"
+probes = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+snafu = "0.6"
+regex = "1"
+wpactrl = "0.3.1"
