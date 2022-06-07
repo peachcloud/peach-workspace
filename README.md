@@ -1,3 +1,7 @@
+⚠️ This repo is no longer active and has been archived. The active repo can be found at https://git.coopcloud.tech/PeachCloud/peach-workspace ⚠️
+
+-----
+
 # [PeachCloud](http://peachcloud.org) :peach: :cloud:
 
 _Better [Scuttlebutt](https://scuttlebutt.nz) cloud infrastructure as a hardware product._
